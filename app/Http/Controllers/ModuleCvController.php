@@ -58,7 +58,7 @@ class ModuleCvController extends Controller
         'Téléphone_fixe'=> ['required'],
         'Téléphone_portable',
         
-        'Profile'=> ['required'],
+        'Profil'=> ['required'],
         'Numéro_CNSS'=> ['required'],
         'Responsable_hiérarchique'=> ['required'],
         'Poste'=> ['required'],
@@ -97,9 +97,7 @@ class ModuleCvController extends Controller
             $image->move(public_path('images'), $profileImage);
             $input['Photo_d_identité'] = "$profileImage";
         }  
-        $imageName = time().'.'.$input['Photo_d_identité']->getClientOriginalExtension();  
-        $request->Photo_d_identité->move(public_path('images'), $imageName);
-
+        
         $salarie = Salarie::create([
         'Nom'=> $input['Nom'],
         'Prénom'=> $input['Prénom'],
@@ -127,7 +125,7 @@ class ModuleCvController extends Controller
         'Contrat_au'=> $input['Contrat_au'],
         'Langues'=> $input['Langues'],
         'Niveau'=> $input['Niveau'],
-        'Photo_d_identité'=> $input['Photo_d_identité'],
+        /* 'Photo_d_identité'=> $input['Photo_d_identité'], */
         ]);
 
         $formation = Formation::create([
