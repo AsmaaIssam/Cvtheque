@@ -42,72 +42,55 @@ class ModuleCvController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-             'image'=> 'required',
-             ]);
-        $input = $request->all();
-        $file = $request->file('image');
-        if( $request->hasFile('image'))
-        { 
-            $img = $request->file('image'); 
-            $extension = $img->getClientMimeType(); 
-            dd($extension); 
-        } else {
-            /* $input = $request->all();
-            $img = $request->file('image'); 
-            $file = $input['image'];
-            $name_image = time().$img->getClientOriginalName(); */
-            dd($file);
-        }
-       /* $this->validate($request, [
        // 'Photo_d_identité'=> 'required|image|mimes:jpeg,png,jpg,gif,svg',
-         'Nom'=> ['required', 'string', 'max:50'],
-        'Prénom'=> ['required', 'string', 'max:50'],
-        'CIN'=> ['required', 'string', 'max:10'],
-        'Date_de_naissance',
+         'Nom'=> ['required', 'max:50'],
+        'Prénom'=> ['required', 'max:50'],
+        'CIN'=> ['required', 'max:20'],
+        'Date_de_naissance'=> ['required'],
         'Lieu_de_naissance',
         'Situation_familiale',
         'Nombre_d_enfants',
-        'Nationalité',
-        'Adresse_1',
+        'Nationalité'=> ['required'],
+        'Adresse_1'=> ['required'],
         'Adresse_2',
         'Code_Postal',
-        'Email',
-        'Téléphone_fixe',
+        'Email'=> ['required','unique:salaries'],
+        'Téléphone_fixe'=> ['required'],
         'Téléphone_portable',
         
-        'Profile',
-        'Numéro_CNSS',
-        'Responsable_hiérarchique',
-        'Poste',
-        'Date_d_embauche',
-        'Département_d_affectation',
-        'Numéro_contrat_de_travail',
-        'Type_de_contrat',
-        'Contrat_du',
-        'Contrat_au',
-        'Langues',
-        'Niveau',
+        'Profile'=> ['required'],
+        'Numéro_CNSS'=> ['required'],
+        'Responsable_hiérarchique'=> ['required'],
+        'Poste'=> ['required'],
+        'Date_d_embauche'=> ['required'],
+        'Département_d_affectation'=> ['required'],
+        'Numéro_contrat_de_travail'=> ['required'],
+        'Type_de_contrat'=> ['required'],
+        'Contrat_du'=> ['required'],
+        'Contrat_au'=> ['required'],
+        'Langues'=> ['required'],
+        'Niveau'=> ['required'],
         
-        'Niveau_des_études',
-        'Intitulé_formation',
-        'Etablissement_formation',
-        'Pays_établissement',
-        'Date_de_début',
-        'Date_de_fin',
-        'Intitulé_diplôme',
-        'Année_d_obtention',
+        'Niveau_des_études'=> ['required'],
+        'Intitulé_formation'=> ['required'],
+        'Etablissement_formation'=> ['required'],
+        'Pays_établissement'=> ['required'],
+        'Date_de_début'=> ['required'],
+        'Date_de_fin'=> ['required'],
+        'Intitulé_diplôme'=> ['required'],
+        'Année_d_obtention'=> ['required'],
         'Diplôme',
         
-        'Date_de_début',
-        'Date_de_fin',
-        'Poste_occupé',
-        'Société',
-        'Pays',
-        'Ville',
+        'Date_de_début'=> ['required'],
+        'Date_de_fin'=> ['required'],
+        'Poste_occupé'=> ['required'],
+        'Société'=> ['required'],
+        'Pays'=> ['required'],
+        'Ville'=> ['required'],
         'Adresse',
         'Description', 
-        ]); */
-       /* $input = $request->all();
+        ]); 
+        $input = $request->all();
           if ($image = $request->file('Photo_d_identité')) {
             $destinationPath = '/public/assets/images/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
@@ -174,7 +157,7 @@ class ModuleCvController extends Controller
 
         
         return redirect()->route('modules.cvs.index')
-                        ->with('success','CV added successfully');*/
+                        ->with('success','CV added successfully');
         
        
     }
