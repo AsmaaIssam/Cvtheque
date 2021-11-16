@@ -20,7 +20,7 @@ class CreateAdminUserSeeder extends Seeder
             'name' => 'asmaa', 
             'first_name' => 'asmaa', 
             'last_name' => 'issam', 
-            'email' => 'issam.asmaa@gmail.com',
+            'email' => 'user@gmail.com',
             'password' => bcrypt('123456789')
         ]);
     
